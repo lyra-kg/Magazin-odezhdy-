@@ -52,7 +52,7 @@
 
 .cardBlock1 {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
   justify-content: center;
 }
@@ -63,17 +63,23 @@
   overflow: hidden;
   box-shadow: 1px 11px 10px #939191;
   transition: 0.4s;
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto;
 }
 
 .card:hover {
-  transform: scale(1.2) rotate(2deg);
+  transform: scale(1.1) rotate(2deg);
 }
 
 .imageCard {
-  width: 200px;
-  height: 300px;
-  object-fit: cover;
-  cursor: pointer;
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  display: block;
+  background: #f7f3ee;
+  padding: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .cardText {
@@ -232,9 +238,12 @@ review-avatar {
     grid-template-columns: 1fr;
   }
 
+  .card {
+    max-width: 100%;
+  }
+
   .imageCard {
-    width: 100%;
-    height: 260px;
+    height: 240px;
   }
 
   .brand {
